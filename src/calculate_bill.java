@@ -18,7 +18,7 @@ public class calculate_bill extends JFrame implements ActionListener
 
         l1 = new JLabel("Calculate Electricity Bill");
         l2 = new JLabel("Meter No");
-        l3 = new JLabel("Units Cosumed");
+        l3 = new JLabel("Units Consumed");
         l5 = new JLabel("Month");
 
         t1 = new JTextField();

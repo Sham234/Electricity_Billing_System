@@ -21,7 +21,7 @@ public class customer_details extends JFrame implements ActionListener{
             ResultSet rs  = c1.s.executeQuery(s1);
             while(rs.next()){
                 y[i][j++]=rs.getString("name");
-                y[i][j++]=rs.getString("meter_number");
+                y[i][j++]=rs.getString("meter");
                 y[i][j++]=rs.getString("address");
                 y[i][j++]=rs.getString("state");
                 y[i][j++]=rs.getString("city");

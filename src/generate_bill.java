@@ -69,13 +69,13 @@ public class generate_bill extends JFrame implements ActionListener{
             conn c = new conn();
 
             String month = c2.getSelectedItem();
-            t1.setText("\tReliance Power Limited\nELECTRICITY BILL FOR THE MONTH OF "+month+" ,2018\n\n\n");
+            t1.setText("\tReliance Power Limited\nELECTRICITY BILL FOR THE MONTH OF "+month+" ,2023\n\n\n");
 
-            ResultSet rs = c.s.executeQuery("select * from emp where meter_number="+c1.getSelectedItem());
+            ResultSet rs = c.s.executeQuery("select * from emp where meter="+c1.getSelectedItem());
 
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
-                t1.append("\n    Meter Number:  "+rs.getString("meter_number"));
+                t1.append("\n    Meter Number:  "+rs.getString("meter"));
                 t1.append("\n    Address:            "+rs.getString("address"));
                 t1.append("\n    State:                 "+rs.getString("state"));
                 t1.append("\n    City:                   "+rs.getString("city"));
@@ -104,7 +104,7 @@ public class generate_bill extends JFrame implements ActionListener{
 
             }
 
-            rs = c.s.executeQuery("select * from bill where meter_number="+c1.getSelectedItem());
+            rs = c.s.executeQuery("select * from bill where meter="+c1.getSelectedItem());
 
             if(rs.next()){
                 t1.append("\n    Current Month :\t"+rs.getString("month"));
