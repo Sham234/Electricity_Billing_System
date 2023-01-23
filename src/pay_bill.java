@@ -22,6 +22,7 @@ public class pay_bill extends JFrame{
         setLocation(250,120);
         setVisible(true);
     }
+
     public static void main(String[] args){
         new pay_bill().setVisible(true);
     }
