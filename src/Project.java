@@ -32,7 +32,7 @@ public class Project extends JFrame implements ActionListener{
 
         /* ---- New Customer ---- */
         m1.setFont(new Font("serif",Font.PLAIN,13));
-        ImageIcon icon1 = new ImageIcon(ClassLoader.getSystemResource("images/icon1.png"));
+        ImageIcon icon1 = new ImageIcon(ClassLoader.getSystemResource("images/icon1.jpg"));
         Image image1 = icon1.getImage().getScaledInstance(25, 25,Image.SCALE_SMOOTH);
         m1.setIcon(new ImageIcon(image1));
         m1.setMnemonic('N');
