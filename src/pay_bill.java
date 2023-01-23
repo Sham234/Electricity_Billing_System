@@ -8,7 +8,7 @@ public class pay_bill extends JFrame{
         j.setEditable(false);
 
         try {
-            j.setPage("https://paytm.com/electricity-bill-payment");
+            j.setPage("https://www.mytnb.com.my/");
         }catch (Exception e) {
             j.setContentType("text/html");
             j.setText("<html>Could not load</html>");

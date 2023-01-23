@@ -90,7 +90,7 @@ public class new_customer extends JFrame implements ActionListener{
         try{
             conn c1 = new conn();
             c1.s.executeUpdate(q1);
-            JOptionPane.showMessageDialog(null,"Employee Created");
+            JOptionPane.showMessageDialog(null,"Customer Created");
             this.setVisible(false);
 
 

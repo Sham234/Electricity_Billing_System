@@ -53,23 +53,23 @@ public class LastBill extends JFrame implements ActionListener
         try{
             conn c = new conn();
 
-            ResultSet rs = c.s.executeQuery("select * from emp where meter_number="+c1.getSelectedItem());
+            ResultSet rs = c.s.executeQuery("select * from emp where meter="+c1.getSelectedItem());
 
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
-                t1.append("\n    Meter Number:  "+rs.getString("meter_number"));
+                t1.append("\n    Meter Number:  "+rs.getString("meter"));
                 t1.append("\n    Address:            "+rs.getString("address"));
                 t1.append("\n    State:                 "+rs.getString("state"));
                 t1.append("\n    City:                   "+rs.getString("city"));
                 t1.append("\n    Email:                "+rs.getString("email"));
-                t1.append("\n    Phone Number  "+rs.getString("phone"));
+                t1.append("\n    Phone Number:  "+rs.getString("phone"));
                 t1.append("\n-------------------------------------------------------------");
                 t1.append("\n");
             }
 
             t1.append("Details of the Last Bills\n\n\n");
 
-            rs = c.s.executeQuery("select * from bill where meter_number="+c1.getSelectedItem());
+            rs = c.s.executeQuery("select * from bill where meter="+c1.getSelectedItem());
 
             while(rs.next()){
                 t1.append("       "+ rs.getString("month") + "           " +rs.getString("amount") + "\n");

@@ -99,12 +99,22 @@ public class calculate_bill extends JFrame implements ActionListener
         String b = t1.getText();
         String c = c2.getSelectedItem();
 
-        int p1 = Integer.parseInt(b);
+        int units_consumed = Integer.parseInt(b);
 
-        int p2 = p1*7;
-        int p3 = p2+50+12+102+20+50;
+        int total_bill = 0;
+        try{
+            conn c1 = new conn();
+            ResultSet rs = c1.s.executeQuery("select * from tax");
+            while(rs.next()){
+                total_bill = units_consumed * 7; // 120 * 7
+                total_bill += Integer.parseInt(rs.getString("meter_rent"));
+                total_bill += Integer.parseInt(rs.getString("service_rent"));
+                total_bill += Integer.parseInt(rs.getString("MCB_rent"));
+                total_bill += Integer.parseInt(rs.getString("GST"));
+            }
+        }catch(Exception e){}
 
-        String q = "insert into bill values('"+a+"','"+c+"','"+b+"','"+p3+"')";
+        String q = "insert into bill values('"+a+"','"+c+"','"+b+"','"+total_bill+"')";
 
         try{
             conn c1 = new conn();

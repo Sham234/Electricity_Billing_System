@@ -80,7 +80,7 @@ public class generate_bill extends JFrame implements ActionListener{
                 t1.append("\n    State:                 "+rs.getString("state"));
                 t1.append("\n    City:                   "+rs.getString("city"));
                 t1.append("\n    Email:                "+rs.getString("email"));
-                t1.append("\n    Phone Number  "+rs.getString("phone"));
+                t1.append("\n    Phone Number:  "+rs.getString("phone"));
                 t1.append("\n-------------------------------------------------------------");
                 t1.append("\n");
             }
@@ -97,8 +97,8 @@ public class generate_bill extends JFrame implements ActionListener{
                 t1.append("---------------------------------------------------------------");
                 t1.append("\n\n");
                 t1.append("\n    Meter Rent:\t\t"+rs.getString("meter_rent"));
-                t1.append("\n    MCB Rent:  \t\t"+rs.getString("mcb_rent"));
-                t1.append("\n    Service Tax:\t"+rs.getString("service_rent"));
+                t1.append("\n    MCB Rent:  \t\t"+rs.getString("MCB_rent"));
+                t1.append("\n    Service Tax:\t\t"+rs.getString("service_rent"));
                 t1.append("\n    GST@9%:\t\t"+rs.getString("gst"));
                 t1.append("\n");
 
@@ -109,9 +109,9 @@ public class generate_bill extends JFrame implements ActionListener{
             if(rs.next()){
                 t1.append("\n    Current Month :\t"+rs.getString("month"));
                 t1.append("\n    Units Consumed:\t"+rs.getString("units"));
-                t1.append("\n    Total Charges :\t"+rs.getString("amount"));
+                t1.append("\n    Total Charges :\tRM "+rs.getString("amount"));
                 t1.append("\n---------------------------------------------------------------");
-                t1.append("\n    TOTAL PAYABLE :\t"+rs.getString("amount"));
+                t1.append("\n    TOTAL PAYABLE :\tRM "+rs.getString("amount"));
             }
 
 
