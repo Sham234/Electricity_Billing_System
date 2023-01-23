@@ -7,9 +7,10 @@ public class calculate_bill extends JFrame implements ActionListener
 {
     JLabel l1,l2,l3,l4,l5;
     JTextField t1;
-    Choice c1,c2;
+    Choice meternumber,c2;
     JButton b1,b2;
     JPanel p;
+
     calculate_bill(){
 
         p = new JPanel();
@@ -23,17 +24,17 @@ public class calculate_bill extends JFrame implements ActionListener
 
         t1 = new JTextField();
 
-        c1 = new Choice();
-        c1.add("1001");
-        c1.add("1002");
-        c1.add("1003");
-        c1.add("1004");
-        c1.add("1005");
-        c1.add("1006");
-        c1.add("1007");
-        c1.add("1008");
-        c1.add("1009");
-        c1.add("1010");
+        meternumber = new Choice();
+
+        try {
+            conn c1  = new conn();
+            ResultSet rs = c1.s.executeQuery("select * from emp");
+            while(rs.next()) {
+                meternumber.add(rs.getString("meter"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         c2 = new Choice();
         c2.add("January");
@@ -72,7 +73,7 @@ public class calculate_bill extends JFrame implements ActionListener
 
 
         p.add(l2);
-        p.add(c1);
+        p.add(meternumber);
         p.add(l5);
         p.add(c2);
         p.add(l3);
@@ -95,7 +96,7 @@ public class calculate_bill extends JFrame implements ActionListener
         setLocation(350,220);
     }
     public void actionPerformed(ActionEvent ae){
-        String a = c1.getSelectedItem();
+        String a = meternumber.getSelectedItem();
         String b = t1.getText();
         String c = c2.getSelectedItem();
 
@@ -106,6 +107,7 @@ public class calculate_bill extends JFrame implements ActionListener
             conn c1 = new conn();
             ResultSet rs = c1.s.executeQuery("select * from tax");
             while(rs.next()){
+
                 total_bill = units_consumed * 7; // 120 * 7
                 total_bill += Integer.parseInt(rs.getString("meter_rent"));
                 total_bill += Integer.parseInt(rs.getString("service_rent"));
@@ -123,7 +125,6 @@ public class calculate_bill extends JFrame implements ActionListener
         }catch(Exception aee){
             aee.printStackTrace();
         }
-
 
     }
 

@@ -7,7 +7,7 @@ public class generate_bill extends JFrame implements ActionListener{
     JLabel l1;
     JTextArea t1;
     JButton b1;
-    Choice c1,c2;
+    Choice meternumber,c2;
     JPanel p1;
     generate_bill(){
         setSize(500,900);
@@ -17,19 +17,18 @@ public class generate_bill extends JFrame implements ActionListener{
 
         l1 = new JLabel("Generate Bill");
 
-        c1 = new Choice();
+        meternumber = new Choice();
         c2 = new Choice();
 
-        c1.add("1001");
-        c1.add("1002");
-        c1.add("1003");
-        c1.add("1004");
-        c1.add("1005");
-        c1.add("1006");
-        c1.add("1007");
-        c1.add("1008");
-        c1.add("1009");
-        c1.add("1010");
+        try {
+            conn c1  = new conn();
+            ResultSet rs = c1.s.executeQuery("select * from emp");
+            while(rs.next()) {
+                meternumber.add(rs.getString("meter"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         c2.add("January");
@@ -53,7 +52,7 @@ public class generate_bill extends JFrame implements ActionListener{
         b1 = new JButton("Generate Bill");
 
         p1.add(l1);
-        p1.add(c1);
+        p1.add(meternumber);
         p1.add(c2);
         add(p1,"North");
 
@@ -71,7 +70,7 @@ public class generate_bill extends JFrame implements ActionListener{
             String month = c2.getSelectedItem();
             t1.setText("\tReliance Power Limited\nELECTRICITY BILL FOR THE MONTH OF "+month+" ,2023\n\n\n");
 
-            ResultSet rs = c.s.executeQuery("select * from emp where meter="+c1.getSelectedItem());
+            ResultSet rs = c.s.executeQuery("select * from emp where meter="+meternumber.getSelectedItem());
 
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
@@ -104,7 +103,7 @@ public class generate_bill extends JFrame implements ActionListener{
 
             }
 
-            rs = c.s.executeQuery("select * from bill where meter="+c1.getSelectedItem());
+            rs = c.s.executeQuery("select * from bill where meter="+meternumber.getSelectedItem());
 
             if(rs.next()){
                 t1.append("\n    Current Month :\t"+rs.getString("month"));
