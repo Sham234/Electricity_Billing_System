@@ -216,7 +216,7 @@ public class Project extends JFrame implements ActionListener{
 
         master.add(m1);
         master.add(m2);
-        //master.add(m3);
+        master.add(m3);
 
         user.add(u1);
         user.add(u2);
@@ -255,8 +255,11 @@ public class Project extends JFrame implements ActionListener{
         if(msg.equals("Customer Details")){
             new customer_details().setVisible(true);
 
-        }else if(msg.equals("New Customer")){
+        }else if(msg.equals("New Customer")) {
             new new_customer().setVisible(true);
+        }
+        else if(msg.equals("Deposit Details")){
+            new deposit_details().setVisible(true);
 
         }else if(msg.equals("Calculate Bill")){
             new calculate_bill().setVisible(true);
