@@ -128,23 +128,33 @@ public class login extends JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent ae){
 
-        try{
-            conn c1 = new conn();
-            String a  = tf1.getText();
-            String b  = pf2.getText();
-            String q  = "select * from login where username = '"+a+"' and password = '"+b+"'";
-            ResultSet rs = c1.s.executeQuery(q);
-            if(rs.next()){
-                new Project().setVisible(true);
-                this.setVisible(false);
+        if (ae.getSource() == b1) {
+            try {
+                conn c1 = new conn();
+                String a = tf1.getText();
+                String b = pf2.getText();
+                String q = "select * from login where username = '" + a + "' and password = '" + b + "'";
+                ResultSet rs = c1.s.executeQuery(q);
+                if (rs.next()) {
+                    new Project().setVisible(true);
+                    this.setVisible(false);
 
-            }else{
-                JOptionPane.showMessageDialog(null, "Invalid login");
-                setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid login");
+                    tf1.setText("");
+                    pf2.setText("");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("error: " + e);
             }
-        }catch(Exception e){
-            e.printStackTrace();
-            System.out.println("error: "+e);
+        }
+        if (ae.getSource() == b2) {
+            setVisible(false);
+        } else if (ae.getSource() == b3) {
+            setVisible(false);
+
+            new signup();
         }
     }
 
