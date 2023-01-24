@@ -17,7 +17,7 @@ public class signup extends JFrame implements ActionListener{
 
         JPanel panel = new JPanel();
         panel.setBounds(30, 30, 650, 300);
-        panel.setBorder(new TitledBorder(new LineBorder(new Color(173, 216, 230), 2), "Create-Account", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(172, 216, 230)));
+        panel.setBorder(new TitledBorder(new LineBorder(new Color(251, 192, 147), 2), "Create-Account", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(241, 90, 34)));
         panel.setBackground(Color.WHITE);
         panel.setLayout(null);
         panel.setForeground(new Color(34, 139, 34));
@@ -25,8 +25,8 @@ public class signup extends JFrame implements ActionListener{
 
         JLabel heading = new JLabel("Create Account As");
         heading.setBounds(100, 50, 140, 20);
-        heading.setForeground(Color.GRAY);
-        heading.setFont(new Font("Tahoma", Font.BOLD, 14));
+        heading.setForeground(Color.BLACK);
+        heading.setFont(new Font("Serif", Font.BOLD, 14));
         panel.add(heading);
 
         accountType = new Choice();
@@ -44,8 +44,8 @@ public class signup extends JFrame implements ActionListener{
 
         JLabel lblusername = new JLabel("Username");
         lblusername.setBounds(100, 130, 140, 20);
-        lblusername.setForeground(Color.GRAY);
-        lblusername.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblusername.setForeground(Color.BLACK);
+        lblusername.setFont(new Font("Serif", Font.BOLD, 14));
         panel.add(lblusername);
 
         username = new JTextField();
@@ -54,8 +54,8 @@ public class signup extends JFrame implements ActionListener{
 
         JLabel lblname = new JLabel("Name");
         lblname.setBounds(100, 170, 140, 20);
-        lblname.setForeground(Color.GRAY);
-        lblname.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblname.setForeground(Color.BLACK);
+        lblname.setFont(new Font("Serif", Font.BOLD, 14));
         panel.add(lblname);
 
         name = new JTextField();
@@ -83,8 +83,8 @@ public class signup extends JFrame implements ActionListener{
 
         JLabel lblpassword = new JLabel("Password");
         lblpassword.setBounds(100, 210, 140, 20);
-        lblpassword.setForeground(Color.GRAY);
-        lblpassword.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblpassword.setForeground(Color.BLACK);
+        lblpassword.setFont(new Font("Serif", Font.BOLD, 14));
         panel.add(lblpassword);
 
         password = new JTextField();
@@ -101,24 +101,24 @@ public class signup extends JFrame implements ActionListener{
         });
 
         create = new JButton("Create");
-        create.setBackground(Color.BLACK);
+        create.setBackground(new Color(255, 148, 112));
         create.setForeground(Color.WHITE);
         create.setBounds(140, 260, 120, 25);
         create.addActionListener(this);
         panel.add(create);
 
         back = new JButton("Back");
-        back.setBackground(Color.BLACK);
+        back.setBackground(new Color(255, 148, 112));
         back.setForeground(Color.WHITE);
         back.setBounds(300, 260, 120, 25);
         back.addActionListener(this);
         panel.add(back);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("images/signupimage.PNG"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("images/signupimage.png"));
         Image i2 = i1.getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
-        image.setBounds(415, 30, 250, 250);
+        image.setBounds(400, 30, 250, 250);
         panel.add(image);
 
         setVisible(true);

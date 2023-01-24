@@ -30,6 +30,7 @@ public class login extends JFrame implements ActionListener
         l2=new JLabel("Password");
         l3=new JLabel("Log in");
         l4=new JLabel("Not yet a member?");
+        l4.setForeground(Color.BLACK);
         tf1=new JTextField(15);
         pf2=new JPasswordField(15);
 
