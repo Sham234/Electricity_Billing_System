@@ -87,11 +87,11 @@ public class generate_bill extends JFrame implements ActionListener{
             rs = c.s.executeQuery("select * from tax");
 
             if(rs.next()){
-                t1.append("\n    Meter Location:"+rs.getString("meter_location"));
-                t1.append("\n    Meter Type:      "+rs.getString("meter_type"));
-                t1.append("\n    Phase Code:    "+rs.getString("phase_code"));
-                t1.append("\n    Bill Type:         "+rs.getString("bill_type"));
-                t1.append("\n    Days:               "+rs.getString("days"));
+                t1.append("\n    Meter Location:"+rs.getString("meter_location")); // Set in SQL
+                t1.append("\n    Meter Type:      "+rs.getString("meter_type")); // Set in SQL
+                t1.append("\n    Phase Code:    "+rs.getString("phase_code")); // Set in SQL
+                t1.append("\n    Bill Type:         "+rs.getString("bill_type")); // Set in SQL
+                t1.append("\n    Days:               "+rs.getString("days")); // Set in SQL
                 t1.append("\n");
                 t1.append("---------------------------------------------------------------");
                 t1.append("\n\n");
