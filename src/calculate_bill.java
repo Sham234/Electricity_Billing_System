@@ -25,10 +25,13 @@ public class calculate_bill extends JFrame implements ActionListener
         l1 = new JLabel("Calculate Electricity Bill");
         l2 = new JLabel("Meter No");
         l2.setFont(new Font("Serif",Font.BOLD,16));
+        l2.setForeground(Color.BLACK);
         l3 = new JLabel("Units Consumed");
         l3.setFont(new Font("Serif",Font.BOLD,16));
+        l3.setForeground(Color.BLACK);
         l5 = new JLabel("Month");
         l5.setFont(new Font("Serif",Font.BOLD,16));
+        l5.setForeground(Color.BLACK);
 
         t1 = new JTextField();
 
@@ -57,6 +60,7 @@ public class calculate_bill extends JFrame implements ActionListener
         c2.add("October");
         c2.add("November");
         c2.add("December");
+        c2.setForeground(Color.BLACK);
 
         b1 = new JButton("Submit");
         b2 = new JButton("Cancel");
@@ -75,6 +79,7 @@ public class calculate_bill extends JFrame implements ActionListener
 
 
         l1.setFont(new Font("Serif",Font.ITALIC,40));
+        l1.setForeground(Color.BLACK);
         //Move the label to center
         l1.setHorizontalAlignment(JLabel.CENTER);
 

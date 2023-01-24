@@ -21,6 +21,7 @@ public class new_customer extends JFrame implements ActionListener{
 
         l9 = new JLabel("New Customer Information");
         l9.setFont(new Font("Serif",Font.ITALIC,40));
+        l9.setForeground(Color.BLACK);
         //Move the label to center
         l9.setHorizontalAlignment(JLabel.CENTER);
         p3.add(l9);
@@ -33,38 +34,46 @@ public class new_customer extends JFrame implements ActionListener{
         l1 = new JLabel("Name");
         t1 = new JTextField();
         l1.setFont(new Font("Serif",Font.BOLD,16));
+        l1.setForeground(Color.BLACK);
         p.add(l1);
         p.add(t1);
         l2 = new JLabel("Meter No");
         t2 = new JTextField();
         l2.setFont(new Font("Serif",Font.BOLD,16));
+        l2.setForeground(Color.BLACK);
         p.add(l2);
         p.add(t2);
         l3 = new JLabel("Address");
         t3 = new JTextField();
         l3.setFont(new Font("Serif",Font.BOLD,16));
+        l3.setForeground(Color.BLACK);
         p.add(l3);
         p.add(t3);
         l4 = new JLabel("State");
         t4 = new JTextField();
         l4.setFont(new Font("Serif",Font.BOLD,16));
+        l4.setForeground(Color.BLACK);
         p.add(l4);
         p.add(t4);
         l5 = new JLabel("City");
         t5 = new JTextField();
         l5.setFont(new Font("Serif",Font.BOLD,16));
+        l5.setForeground(Color.BLACK);
         p.add(l5);
         p.add(t5);
         l6 = new JLabel("Email");
         t6 = new JTextField();
         l6.setFont(new Font("Serif",Font.BOLD,16));
+        l6.setForeground(Color.BLACK);
         p.add(l6);
         p.add(t6);
         l7 = new JLabel("Phone Number");
         t7 = new JTextField();
         l7.setFont(new Font("Serif",Font.BOLD,16));
+        l7.setForeground(Color.BLACK);
         p.add(l7);
         p.add(t7);
+
         l12 = new JLabel("");
         p.add(l12);
         l13 = new JLabel("");

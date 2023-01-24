@@ -52,6 +52,7 @@ public class login extends JFrame implements ActionListener
         l3.setFont(new Font("Serif",Font.ITALIC,36));
         //Move the label to center
         l3.setHorizontalAlignment(JLabel.CENTER);
+        l3.setForeground(Color.BLACK);
 
         /* Password field size */
         pf2.setBounds(100,150,193,28);
