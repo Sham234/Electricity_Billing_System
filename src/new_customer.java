@@ -113,27 +113,33 @@ public class new_customer extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent ae){
 
-        String a = t1.getText();
-        String c = t2.getText();
-        String d = t3.getText();
-        String e = t4.getText();
-        String f = t5.getText();
-        String g = t6.getText();
-        String h = t7.getText();
-
-        String q1 = "insert into emp values('"+a+"','"+c+"','"+d+"','"+e+"','"+f+"','"+g+"','"+h+"')";
-
-        try{
-            conn c1 = new conn();
-            c1.s.executeUpdate(q1);
-            JOptionPane.showMessageDialog(null,"Customer Created");
-            this.setVisible(false);
+        if(ae.getSource() == b1) {
 
 
-        }catch(Exception ex){
-            ex.printStackTrace();
+            String a = t1.getText();
+            String c = t2.getText();
+            String d = t3.getText();
+            String e = t4.getText();
+            String f = t5.getText();
+            String g = t6.getText();
+            String h = t7.getText();
+
+            String q1 = "insert into emp values('" + a + "','" + c + "','" + d + "','" + e + "','" + f + "','" + g + "','" + h + "')";
+
+            try {
+                conn c1 = new conn();
+                c1.s.executeUpdate(q1);
+                JOptionPane.showMessageDialog(null, "Customer Created");
+                this.setVisible(false);
+
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
-
+        else if(ae.getSource() == b2) {
+            setVisible(false);
+        }
     }
 
 

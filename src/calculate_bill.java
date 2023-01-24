@@ -113,36 +113,43 @@ public class calculate_bill extends JFrame implements ActionListener
         setLocation(320,180);
     }
     public void actionPerformed(ActionEvent ae){
-        String a = meternumber.getSelectedItem();
-        String b = t1.getText();
-        String c = c2.getSelectedItem();
+        if(ae.getSource() == b1) {
 
-        int units_consumed = Integer.parseInt(b);
+            String a = meternumber.getSelectedItem();
+            String b = t1.getText();
+            String c = c2.getSelectedItem();
 
-        int total_bill = 0;
-        try{
-            conn c1 = new conn();
-            ResultSet rs = c1.s.executeQuery("select * from tax");
-            while(rs.next()){
+            int units_consumed = Integer.parseInt(b);
 
-                total_bill = units_consumed * 7; // 120 * 7
-                total_bill += Integer.parseInt(rs.getString("meter_rent"));
-                total_bill += Integer.parseInt(rs.getString("service_rent"));
-                total_bill += Integer.parseInt(rs.getString("MCB_rent"));
-                total_bill += Integer.parseInt(rs.getString("GST"));
+            int total_bill = 0;
+            try {
+                conn c1 = new conn();
+                ResultSet rs = c1.s.executeQuery("select * from tax");
+                while (rs.next()) {
+
+                    total_bill = units_consumed * 7; // 120 * 7
+                    total_bill += Integer.parseInt(rs.getString("meter_rent"));
+                    total_bill += Integer.parseInt(rs.getString("service_rent"));
+                    total_bill += Integer.parseInt(rs.getString("MCB_rent"));
+                    total_bill += Integer.parseInt(rs.getString("GST"));
+                }
+            } catch (Exception e) {
             }
-        }catch(Exception e){}
 
-        String q = "insert into bill values('"+a+"','"+c+"','"+b+"','"+total_bill+"')";
+            String q = "insert into bill values('" + a + "','" + c + "','" + b + "','" + total_bill + "')";
 
-        try{
-            conn c1 = new conn();
-            c1.s.executeUpdate(q);
-            JOptionPane.showMessageDialog(null,"Bill Updated");
-        }catch(Exception aee){
-            aee.printStackTrace();
+            try {
+                conn c1 = new conn();
+                c1.s.executeUpdate(q);
+                JOptionPane.showMessageDialog(null, "Bill Updated");
+                setVisible(false);
+            } catch (Exception aee) {
+                aee.printStackTrace();
+            }
         }
-
+        else if(ae.getSource() == b2){
+            setVisible(false);
+        }
     }
 
 
