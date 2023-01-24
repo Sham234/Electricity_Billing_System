@@ -11,6 +11,8 @@ public class LastBill extends JFrame implements ActionListener
     Choice meternumber;
     JPanel p1;
     LastBill(){
+
+        super("Last Bill");
         setSize(500,900);
         setLayout(new BorderLayout());
 

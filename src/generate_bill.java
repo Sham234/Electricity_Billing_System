@@ -10,6 +10,8 @@ public class generate_bill extends JFrame implements ActionListener{
     Choice meternumber,c2;
     JPanel p1;
     generate_bill(){
+
+        super("Generate Bill");
         setSize(500,900);
         setLayout(new BorderLayout());
 

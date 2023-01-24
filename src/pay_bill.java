@@ -6,6 +6,8 @@ public class pay_bill extends JFrame implements ActionListener{
 
     JButton back;
     pay_bill(){
+
+        super("Pay Bill");
         JEditorPane j = new JEditorPane();
         j.setEditable(false);
 

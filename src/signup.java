@@ -11,6 +11,7 @@ public class signup extends JFrame implements ActionListener{
     JTextField meter, username, name, password;
     signup(){
 
+        super("Signup Page");
         setBounds(450, 150, 700, 400);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
