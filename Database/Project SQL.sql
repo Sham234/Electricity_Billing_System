@@ -21,7 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `bill`
 --
-
 CREATE TABLE `bill` (
   `meter` varchar(30) NOT NULL,
   `month` varchar(30) NOT NULL,
@@ -66,16 +65,18 @@ INSERT INTO `emp` (`name`, `meter`, `address`, `state`, `city`, `email`, `phone`
 --
 
 CREATE TABLE `login` (
-  `UserName` varchar(30) NOT NULL,
-  `Password` varchar(30) NOT NULL
+  `name` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `user` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`UserName`, `Password`) VALUES
-('sham', '1702');
+INSERT INTO `login` (`name`, `username`, `password`, `user`) VALUES
+('sham', 'sham', '1702','Admin');
 -- --------------------------------------------------------
 
 
@@ -86,6 +87,7 @@ INSERT INTO `login` (`UserName`, `Password`) VALUES
 --
 
 CREATE TABLE `tax` (
+ 
   `meter_location` varchar(30) NOT NULL,
   `meter_type` varchar(30) NOT NULL,
   `phase_code` varchar(30) NOT NULL,
