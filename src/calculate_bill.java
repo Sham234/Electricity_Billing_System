@@ -9,18 +9,26 @@ public class calculate_bill extends JFrame implements ActionListener
     JTextField t1;
     Choice meternumber,c2;
     JButton b1,b2;
-    JPanel p;
+    JPanel p,p2,p3;
 
     calculate_bill(){
 
+        setTitle("Calculate bill");
+
         p = new JPanel();
+        p2 = new JPanel();
+        p3 = new JPanel();
+
         p.setLayout(new GridLayout(4,2,30,30));
         p.setBackground(Color.WHITE);
 
         l1 = new JLabel("Calculate Electricity Bill");
         l2 = new JLabel("Meter No");
+        l2.setFont(new Font("Serif",Font.BOLD,16));
         l3 = new JLabel("Units Consumed");
+        l3.setFont(new Font("Serif",Font.BOLD,16));
         l5 = new JLabel("Month");
+        l5.setFont(new Font("Serif",Font.BOLD,16));
 
         t1 = new JTextField();
 
@@ -53,38 +61,42 @@ public class calculate_bill extends JFrame implements ActionListener
         b1 = new JButton("Submit");
         b2 = new JButton("Cancel");
 
-        b1.setBackground(Color.BLACK);
+        b1.setBackground(new Color(255, 148, 112));
         b1.setForeground(Color.WHITE);
 
-        b2.setBackground(Color.BLACK);
+        b2.setBackground(new Color(255, 148, 112));
         b2.setForeground(Color.WHITE);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("images/hicon2.jpg"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("images/hicon4.png"));
         Image i2 = i1.getImage().getScaledInstance(180, 270,Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         l4 = new JLabel(i3);
 
 
 
-        l1.setFont(new Font("Senserif",Font.PLAIN,26));
+        l1.setFont(new Font("Serif",Font.ITALIC,40));
         //Move the label to center
         l1.setHorizontalAlignment(JLabel.CENTER);
 
 
-
+        p2.add(l1);
+        p2.setBackground(new Color(255, 148, 112));
         p.add(l2);
         p.add(meternumber);
         p.add(l5);
         p.add(c2);
         p.add(l3);
         p.add(t1);
-        p.add(b1);
-        p.add(b2);
+        p3.add(b1);
+        p3.add(b2);
+        p.setBackground(Color.WHITE);
+        p3.setBackground(Color.WHITE);
 
-        setLayout(new BorderLayout(30,30));
+        setLayout(new BorderLayout(20,20));
 
-        add(l1,"North");
+        add(p2,"North");
         add(p,"Center");
+        add(p3,"South");
         add(l4,"West");
 
 
@@ -92,8 +104,8 @@ public class calculate_bill extends JFrame implements ActionListener
         b2.addActionListener(this);
 
         getContentPane().setBackground(Color.WHITE);
-        setSize(650,500);
-        setLocation(350,220);
+        setSize(680,400);
+        setLocation(320,180);
     }
     public void actionPerformed(ActionEvent ae){
         String a = meternumber.getSelectedItem();
