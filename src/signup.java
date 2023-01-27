@@ -8,8 +8,8 @@ public class signup extends JFrame implements ActionListener{
 
     JButton create, back;
     Choice accountType;
-    JTextField meter, username, name, password;
-    signup(){
+    JTextField username, name, password;
+        signup(){
 
         super("Signup Page");
         setBounds(450, 150, 700, 400);
@@ -37,12 +37,6 @@ public class signup extends JFrame implements ActionListener{
         panel.add(accountType);
 
 
-
-        meter = new JTextField();
-        meter.setBounds(260, 90, 150, 20);
-        meter.setVisible(false);
-        panel.add(meter);
-
         JLabel lblusername = new JLabel("Username");
         lblusername.setBounds(100, 130, 140, 20);
         lblusername.setForeground(Color.BLACK);
@@ -62,25 +56,6 @@ public class signup extends JFrame implements ActionListener{
         name = new JTextField();
         name.setBounds(260, 170, 150, 20);
         panel.add(name);
-
-        meter.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent fe) {}
-
-            @Override
-            public void focusLost(FocusEvent fe) {
-                try {
-                    conn c1  = new conn();
-                    ResultSet rs = c1.s.executeQuery("select * from login where meter_no = '"+meter.getText()+"'");
-                    while(rs.next()) {
-                        name.setText(rs.getString("name"));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
 
         JLabel lblpassword = new JLabel("Password");
         lblpassword.setBounds(100, 210, 140, 20);
@@ -131,7 +106,6 @@ public class signup extends JFrame implements ActionListener{
             String susername = username.getText();
             String sname = name.getText();
             String spassword = password.getText();
-            String smeter = meter.getText();
 
             try {
                 conn c1 = new conn();

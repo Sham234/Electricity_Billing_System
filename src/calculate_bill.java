@@ -127,12 +127,22 @@ public class calculate_bill extends JFrame implements ActionListener
                 ResultSet rs = c1.s.executeQuery("select * from tax");
                 while (rs.next()) {
 
-                    total_bill = units_consumed * 7; // 120 * 7
-                    total_bill += Integer.parseInt(rs.getString("meter_rent"));
-                    total_bill += Integer.parseInt(rs.getString("service_rent"));
-                    total_bill += Integer.parseInt(rs.getString("MCB_rent"));
-                    total_bill += Integer.parseInt(rs.getString("GST"));
-                }
+                    if (units_consumed < 100)
+                        {
+                            total_bill = units_consumed * 2;
+                        }
+                    else if (units_consumed < 300) {
+                            total_bill = 100 * 2 + (units_consumed - 100) * 3;
+                        } else if (units_consumed > 300) {
+                            total_bill = 100 * 2 + 200 * 3 + (units_consumed - 300) * 4;
+                        }
+
+                        total_bill += Integer.parseInt(rs.getString("meter_rent"));
+                        total_bill += Integer.parseInt(rs.getString("service_rent"));
+                        total_bill += Integer.parseInt(rs.getString("MCB_rent"));
+                        total_bill += Integer.parseInt(rs.getString("GST"));
+                    }
+
             } catch (Exception e) {
             }
 

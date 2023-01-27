@@ -67,12 +67,12 @@ public class generate_bill extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent ae){
         try{
-            conn c = new conn();
+            conn c1 = new conn();
 
             String month = c2.getSelectedItem();
             t1.setText("\tReliance Power Limited\nELECTRICITY BILL FOR THE MONTH OF "+month+" ,2023\n\n\n");
 
-            ResultSet rs = c.s.executeQuery("select * from emp where meter="+meternumber.getSelectedItem());
+            ResultSet rs = c1.s.executeQuery("select * from emp where meter="+meternumber.getSelectedItem());
 
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
@@ -86,7 +86,7 @@ public class generate_bill extends JFrame implements ActionListener{
                 t1.append("\n");
             }
 
-            rs = c.s.executeQuery("select * from tax");
+            rs = c1.s.executeQuery("select * from tax");
 
             if(rs.next()){
                 t1.append("\n    Meter Location:"+rs.getString("meter_location")); // Set in SQL
@@ -97,15 +97,15 @@ public class generate_bill extends JFrame implements ActionListener{
                 t1.append("\n");
                 t1.append("---------------------------------------------------------------");
                 t1.append("\n\n");
-                t1.append("\n    Meter Rent:\t\t"+rs.getString("meter_rent"));
-                t1.append("\n    MCB Rent:  \t\t"+rs.getString("MCB_rent"));
-                t1.append("\n    Service Tax:\t\t"+rs.getString("service_rent"));
-                t1.append("\n    GST@9%:\t\t"+rs.getString("gst"));
+                t1.append("\n    Meter Rent:\t\t"+rs.getString("meter_rent")); // Set in SQL
+                t1.append("\n    MCB Rent:  \t\t"+rs.getString("MCB_rent")); // Set in SQL
+                t1.append("\n    Service Tax:\t\t"+rs.getString("service_rent")); // Set in SQL
+                t1.append("\n    GST:\t\t"+rs.getString("gst")); // Set in SQL
                 t1.append("\n");
 
             }
 
-            rs = c.s.executeQuery("select * from bill where meter="+meternumber.getSelectedItem());
+            rs = c1.s.executeQuery("select * from bill where meter="+meternumber.getSelectedItem());
 
             if(rs.next()){
                 t1.append("\n    Current Month :\t"+rs.getString("month"));
